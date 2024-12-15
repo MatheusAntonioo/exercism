@@ -64,3 +64,21 @@ function applyMondayBonus(scoreBoard) {
 }
 applyMondayBonus(scoreBoard);
 console.log(scoreBoard);
+
+console.log("----------------------");
+
+function normalizeScore(params) {
+  const { score, normalizeFunction } = params;
+  return normalizeFunction(score);
+}
+
+function normalize(score) {
+  return 2 * score + 10;
+}
+
+const params = {
+  score: 400,
+  normalizeFunction: normalize
+};
+
+console.log(normalizeScore(params))
