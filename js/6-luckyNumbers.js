@@ -25,3 +25,17 @@ console.log(luckyNumber(1));
 
 console.log("----------------------");
 
+function errorMessage(input) {
+  let num = Number(input)
+
+  if (input === "" || !input){
+    return "Required field"
+  }
+  if (!num) {
+    return "Must be a number besides 0"
+  } else {
+    return ""
+  }
+}
+
+console.log(errorMessage(null))
