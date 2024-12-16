@@ -44,6 +44,23 @@ function ticketStatus(tickets, ticketId) {
   }
 }
 
-// ticketStatus(tickets, 'RE90VAW7');
-// ticketStatus(tickets, "0H2AZ123");
-// ticketStatus(tickets, "23LA9T41");
+ticketStatus(tickets, "RE90VAW7");
+ticketStatus(tickets, "0H2AZ123");
+ticketStatus(tickets, "23LA9T41");
+
+console.log("----------------------");
+
+function simpleTicketStatus(tickets, ticketId) {
+  if (!(ticketId in tickets) || tickets[ticketId] === null) {
+    return console.log("invalid ticket !!!");
+  } else {
+    return console.log(`${tickets[ticketId]}`);
+  }
+}
+
+simpleTicketStatus(tickets, "23LA9T41");
+simpleTicketStatus(tickets, "0H2AZ123");
+simpleTicketStatus(tickets, "RE90VAW7");
+
+console.log("----------------------");
+
