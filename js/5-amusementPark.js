@@ -64,3 +64,31 @@ simpleTicketStatus(tickets, "RE90VAW7");
 
 console.log("----------------------");
 
+const visitorNew = {
+  name: 'Verena Nardi',
+  age: 45,
+  ticketId: 'H32AZ123',
+  gtc: {
+    signed: true,
+    version: '2.1',
+  },
+};
+
+const visitorOld = {
+  name: 'Verena Nardi',
+  age: 45,
+  ticketId: 'H32AZ123',
+};
+
+
+function gtcVersion(visitor) {
+  if (visitor.gtc === undefined) {
+    return
+  }
+  if (visitor.gtc.signed === true) {
+    return visitor.gtc.version;
+  }
+}
+
+// console.log(gtcVersion(visitorNew));
+// console.log(gtcVersion(visitorOld));
