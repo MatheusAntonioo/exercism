@@ -9,6 +9,8 @@ function translate2d(dx, dy) {
 }
 console.log(translate2d(1, 4));
 
+console.log("----------------------");
+
 function scale2d(dx, dy) {
   return function doubleScale(x, y) {
     return [dx * x, dy * y];
@@ -16,26 +18,29 @@ function scale2d(dx, dy) {
 }
 console.log(scale2d(1, 4));
 
+console.log("----------------------");
+
 function composeTransform(dx, dy) {
   return function composedTransformations(x, y) {
     const [a, b] = dx(x, y);
     return dy(a, b);
   };
 }
+console.log(composeTransform(0, 1))
 
-function memoizeTransform(fn) {
-  let lastArgs = null; // Armazena os últimos argumentos usados
-  let lastResult = null; // Armazena o último resultado calculado
+console.log("----------------------");
 
-  return function (x, y) {
-    // Verifica se os argumentos atuais são iguais aos últimos
-    if (lastArgs && lastArgs[0] === x && lastArgs[1] === y) {
-      return lastResult; // Retorna o resultado memorizado
+function memorizeTransform(fn) {
+  let lastArgs = null;
+  let lastResult = null;
+
+  return function memorizedScale(...args) {
+    if (lastArgs && lastArgs.length === args.length && lastArgs.every((arg, index) => arg === args[index])){
+      return lastResult;
     }
-
-    // Caso contrário, calcula o resultado e armazena os argumentos e o resultado
-    lastArgs = [x, y];
-    lastResult = fn(x, y);
+    lastArgs = args;
+    lastResult = fn(...args);
     return lastResult;
   };
 }
+console.log(memorizeTransform(4, 3))
