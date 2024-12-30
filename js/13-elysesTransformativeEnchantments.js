@@ -1,4 +1,4 @@
-console.log("Elyses Looping Enchantments exercises");
+console.log("Elyses Transformative Enchantments exercises");
 
 console.log("----------------------");
 
